@@ -3,6 +3,9 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Why from './components/Why'
 import How from './components/How'
+import Testimonials from './components/Testimonial'
+import FAQ from './components/Faq'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -13,6 +16,9 @@ const App = () => {
         <Why />
       </div>
       <How />
+      <Testimonials />
+      <FAQ />
+      <Footer />
     </div>
   )
 }
