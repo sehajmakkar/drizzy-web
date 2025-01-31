@@ -1,4 +1,3 @@
-// components/HowItWorks.jsx
 import React from 'react';
 import { Download, Calendar, Car } from 'lucide-react';
 
@@ -25,14 +24,14 @@ const How = () => {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative bg-slate-900">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-slate-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 opacity-50"></div>
 
       <section className="relative py-32">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-5xl font-bold text-center mb-4">How Drizzy Works</h2>
-          <p className="text-gray-600 text-center mb-20 max-w-2xl mx-auto text-lg">
+          <h2 className="text-5xl font-bold text-center mb-4 text-white">How Drizzy Works</h2>
+          <p className="text-slate-300 text-center mb-20 max-w-2xl mx-auto text-lg">
             Get started with Drizzy in three simple steps
           </p>
 
@@ -45,7 +44,18 @@ const How = () => {
                 <div className="h-[46px] w-[3px] bg-gray-800 dark:border-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
                 <div className="h-[64px] w-[3px] bg-gray-800 dark:border-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
                 <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-                  <img src="/api/placeholder/272/572" alt="App Demo" className="w-full h-full object-cover" />
+                  <video 
+                    src="./demo.mp4" 
+                    className="w-full h-full"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ playbackRate: 0.25 }}
+                    onLoadedMetadata={(e) => {
+                      e.target.playbackRate = 0.25;
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -67,10 +77,10 @@ const How = () => {
 
                   {/* Content - Enhanced Size */}
                   <div className="flex-grow pt-6">
-                    <h3 className="text-2xl font-bold mb-3 group-hover:text-yellow-500 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-yellow-400 transition-colors duration-300">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
+                    <p className="text-slate-300 text-lg leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -82,7 +92,6 @@ const How = () => {
       </section>
     </div>
   );
-  
 };
 
 export default How;
