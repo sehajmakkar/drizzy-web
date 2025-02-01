@@ -6,6 +6,8 @@ import How from './components/How'
 import Testimonials from './components/Testimonial'
 import FAQ from './components/Faq'
 import Footer from './components/Footer'
+import Driver from './components/Driver'  
+import DownloadSection from './components/Dowload'
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
       <How />
       <Testimonials />
       <FAQ />
+      <Driver />
+      <DownloadSection />
       <Footer />
     </div>
   )
