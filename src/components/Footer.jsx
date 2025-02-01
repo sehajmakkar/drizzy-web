@@ -92,12 +92,12 @@ const Footer = () => {
       </div>
 
       {/* Mobile App Bar - Fixed at Bottom */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 p-4">
+      {/* <div className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 p-4">
         <button className="w-full bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300">
           <Download className="w-5 h-5" />
           Download Drizzy
         </button>
-      </div>
+      </div> */}
     </footer>
   );
 };

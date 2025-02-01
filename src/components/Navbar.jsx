@@ -37,7 +37,7 @@ const Navbar = () => {
 
           {/* App Store Buttons */}
           <div className="hidden md:flex flex-1 items-center justify-end space-x-4">
-            <StoreButton type="apple" />
+            {/* <StoreButton type="apple" /> */}
             <StoreButton type="google" />
           </div>
 
