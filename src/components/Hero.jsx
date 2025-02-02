@@ -4,6 +4,22 @@ import { useGLTF, Stage, PresentationControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 
+// Custom hook to detect mobile screen size synchronously
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+};
+
 // Improved Animated Suffix Component
 const AnimatedSuffix = () => {
   const words = ['effortlessly!', 'like a PRO!', 'confidently!', 'with Drizzy!'];
@@ -23,19 +39,17 @@ const AnimatedSuffix = () => {
   }, []);
 
   return (
-    <div className="relative h-[1.5em]  w-full md:inline-block">
-      <div className="inline-block">
-        <span className="text-black mr-2">Learn to Drive </span>
-        <span 
-          className={`text-yellow-500 inline-block transition-all duration-500 ${
-            isAnimating 
-              ? 'transform translate-x-full opacity-0' 
-              : 'transform translate-x-0 opacity-100'
-          }`}
-        >
-          {words[index]}
-        </span>
-      </div>
+    <div className="flex flex-col items-center lg:items-start">
+      <span className="text-black block">Learn to Drive</span>
+      <span 
+        className={`text-yellow-500 block transition-all duration-500 ${
+          isAnimating 
+            ? 'opacity-0 transform -translate-y-2' 
+            : 'opacity-100 transform translate-y-0'
+        }`}
+      >
+        {words[index]}
+      </span>
     </div>
   );
 };
@@ -81,15 +95,18 @@ function Model({ mouseX, ...props }) {
 
 const Hero = () => {
   const [mouseX, setMouseX] = React.useState(0);
+  const isMobile = useIsMobile(); // Use the custom hook to detect mobile
 
   const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width * 2 - 1;
-    setMouseX(x);
+    if (!isMobile) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width * 2 - 1;
+      setMouseX(x);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-20 lg:pt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between py-12 md:py-20 lg:py-32">
           {/* Left Section */}
@@ -105,7 +122,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-yellow-600 transition-colors w-full sm:w-auto">
-                Book a Lesson
+                Book a Trainer
               </button>
               <button className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto">
                 Download App
@@ -131,21 +148,32 @@ const Hero = () => {
                 intensity={2}
                 castShadow={false}
               />
-              <PresentationControls
-                speed={1.5}
-                global
-                zoom={0.7}
-                polar={[-0.1, Math.PI / 4]}
-                config={{ mass: 2, tension: 200 }}
-              >
+              {!isMobile && (
+                <PresentationControls
+                  speed={1.5}
+                  global
+                  zoom={0.7}
+                  polar={[-0.1, Math.PI / 4]}
+                  config={{ mass: 2, tension: 200 }}
+                >
+                  <Stage environment={null} intensity={0}>
+                    <Model 
+                      scale={0.01}
+                      mouseX={mouseX}
+                      rotation-y={Math.PI * 1.5}
+                    />
+                  </Stage>
+                </PresentationControls>
+              )}
+              {isMobile && (
                 <Stage environment={null} intensity={0}>
                   <Model 
-                    scale={0.01}
-                    mouseX={mouseX}
+                    scale={0.015}
+                    mouseX={0}
                     rotation-y={Math.PI * 1.5}
                   />
                 </Stage>
-              </PresentationControls>
+              )}
             </Canvas>
           </section>
         </div>
