@@ -22,8 +22,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-1 flex justify-start">
-            <span className="text-3xl font-bold bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500 bg-clip-text text-transparent hover:scale-105 transition-transform cursor-pointer">
+          <div className="flex-1 flex justify-start items-center">
+            {/* Add the drizzy.svg logo here */}
+            <img 
+              src="/drizzy-logo.svg" 
+              alt="Drizzy Logo" 
+              className="w-10 h-10 mr-2" 
+            />
+            <span className="text-3xl font-bold text-black bg-clip-text hover:scale-105 transition-transform cursor-pointer">
               Drizzy
             </span>
           </div>
@@ -70,7 +76,7 @@ const Navbar = () => {
             <a href="#contact" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">Contact</a>
             
             <div className="space-y-3 px-3">
-              <StoreButton type="apple" isMobile />
+              {/* <StoreButton type="apple" isMobile /> */}
               <StoreButton type="google" isMobile />
             </div>
           </div>

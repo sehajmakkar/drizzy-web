@@ -35,9 +35,9 @@ const How = () => {
             Get started with Drizzy in three simple steps
           </p>
 
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-16">
-            {/* iPhone Mockup */}
-            <div className="lg:w-2/5">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+            {/* iPhone Mockup - Centered on Mobile and Tablet */}
+            <div className="w-full lg:w-2/5 flex justify-center">
               <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-2xl">
                 <div className="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
                 <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
@@ -61,7 +61,7 @@ const How = () => {
             </div>
 
             {/* Steps - Now Larger */}
-            <div className="lg:w-3/5 space-y-12 relative">
+            <div className="w-full lg:w-3/5 space-y-12 relative">
               {/* Connecting Line */}
               <div className="absolute left-[60px] top-[100px] w-1 h-[calc(100%-140px)] bg-yellow-400 hidden lg:block"></div>
 
