@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,29 +23,36 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
+          <Link to="/">
           <div className="flex-1 flex justify-start items-center">
-            {/* Add the drizzy.svg logo here */}
             <img 
               src="/drizzy-logo.svg" 
               alt="Drizzy Logo" 
               className="w-10 h-10 mr-2" 
-            />
+              />
             <span className="text-3xl font-bold text-black bg-clip-text hover:scale-105 transition-transform cursor-pointer">
               Drizzy
             </span>
           </div>
+          </Link>
 
           {/* Desktop Menu - Centered */}
           <div className="hidden md:flex flex-1 items-center justify-center space-x-8">
             <NavLink href="#features">Features</NavLink>
-            <NavLink href="#how-it-works">How it Works</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
+            <NavLink href="#how">How it Works</NavLink>
+            <NavLink href="#testimonials-section"> Testimonials</NavLink>
           </div>
 
           {/* App Store Buttons */}
           <div className="hidden md:flex flex-1 items-center justify-end space-x-4">
             {/* <StoreButton type="apple" /> */}
-            <StoreButton type="google" />
+            <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
+                <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
+                <div className="text-left">
+                  <div className="text-xs">GET IT ON</div>
+                  <div className="text-sm font-semibold">Google Play</div>
+                </div>
+              </button>
           </div>
 
           {/* Mobile Menu Button */}

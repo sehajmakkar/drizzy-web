@@ -1,29 +1,39 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Why from './components/Why'
-import How from './components/How'
-import Testimonials from './components/Testimonial'
-import FAQ from './components/Faq'
-import Footer from './components/Footer'
-import Driver from './components/Driver'  
-import DownloadSection from './components/Dowload'
+import {
+  createBrowserRouter,
+  Link,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import Terms from './components/Terms'
+import Privacy from './components/Privacy'
+import Refund from './components/Refund'
+import HomePage from './components/HomePage'
 
 const App = () => {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/terms",
+      element: <Terms />,
+    },
+    {
+      path: "/privacy-policy",
+      element: <Privacy />,
+    },
+    {
+      path: "/refund",
+      element: <Refund />,
+    }
+  ])
+
+
   return (
-    <div className="min-h-screen">
-      <div className="bg-white">
-        <Navbar />
-        <Hero />
-        <Why />
-      </div>
-      <How />
-      <Testimonials />
-      <FAQ />
-      <Driver />
-      <DownloadSection />
-      <Footer />
-    </div>
+    <RouterProvider router={router} />
   )
 }
 

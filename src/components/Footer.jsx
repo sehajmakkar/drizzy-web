@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Driving Made Easy Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
@@ -16,19 +16,19 @@ const Footer = () => {
               Download Drizzy Now!!
             </p>
             <div className="flex space-x-4">
-              <button className="bg-white/10 hover:bg-white/20 transition-colors duration-300 p-3 rounded-lg">
+              {/* <button className="bg-white/10 hover:bg-white/20 transition-colors duration-300 p-3 rounded-lg">
                 <img
                   src="/api/placeholder/120/40"
                   alt="App Store"
                   className="h-8"
                 />
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 transition-colors duration-300 p-3 rounded-lg">
-                <img
-                  src="/api/placeholder/120/40"
-                  alt="Play Store"
-                  className="h-8"
-                />
+              </button> */}
+              <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors">
+                <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
+                <div className="text-left">
+                  <div className="text-xs">GET IT ON</div>
+                  <div className="text-sm font-semibold">Google Play</div>
+                </div>
               </button>
             </div>
           </div>
@@ -39,7 +39,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: 'Home', href: '/' },
-                { name: 'Privacy Policy', href: '/privacy' },
+                { name: 'Privacy Policy', href: '/privacy-policy' },
                 { name: 'Terms and Conditions', href: '/terms' },
                 { name: 'Refund and Cancellation', href: '/refund' }
               ].map((item) => (
@@ -86,7 +86,7 @@ const Footer = () => {
         {/* Copyright Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <p className="text-center text-gray-400">
-            © 2024 Drizzy. All Rights Reserved.
+            © 2025 Drizzy. All Rights Reserved.
           </p>
         </div>
       </div>

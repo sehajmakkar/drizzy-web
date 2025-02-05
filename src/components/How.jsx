@@ -24,7 +24,7 @@ const How = () => {
   ];
 
   return (
-    <div className="relative bg-slate-900">
+    <div id="how" className="relative bg-slate-900">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 opacity-50"></div>
 

@@ -68,8 +68,8 @@ const DownloadSection = () => {
             {/* App Store Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               {/* Google Play Button */}
-              <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
-                <img src="/api/placeholder/24/24" alt="Google Play" className="w-6 h-6 mr-2" />
+              <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors justify-center">
+                <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
                 <div className="text-left">
                   <div className="text-xs">GET IT ON</div>
                   <div className="text-sm font-semibold">Google Play</div>
@@ -77,13 +77,13 @@ const DownloadSection = () => {
               </button>
 
               {/* App Store Button */}
-              <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
+              {/* <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
                 <img src="/api/placeholder/24/24" alt="App Store" className="w-6 h-6 mr-2" />
                 <div className="text-left">
                   <div className="text-xs">Download on the</div>
                   <div className="text-sm font-semibold">App Store</div>
                 </div>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
