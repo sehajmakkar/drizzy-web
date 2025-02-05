@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import {Link} from 'react-router-dom'
 
 const DownloadSection = () => {
   const features = [
@@ -68,6 +69,7 @@ const DownloadSection = () => {
             {/* App Store Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               {/* Google Play Button */}
+              <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
               <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors justify-center">
                 <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
                 <div className="text-left">
@@ -75,6 +77,7 @@ const DownloadSection = () => {
                   <div className="text-sm font-semibold">Google Play</div>
                 </div>
               </button>
+              </Link>
 
               {/* App Store Button */}
               {/* <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">

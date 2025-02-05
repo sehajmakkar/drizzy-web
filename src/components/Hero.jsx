@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { useGLTF, Stage, PresentationControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
+import { Link } from 'react-router-dom';
 
 // Custom hook to detect mobile screen size synchronously
 const useIsMobile = () => {
@@ -124,9 +125,11 @@ const Hero = () => {
               <button className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-yellow-600 transition-colors w-full sm:w-auto">
                 Book a Trainer
               </button>
+              <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
               <button className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto">
                 Download App
               </button>
+              </Link>
             </div>
           </section>
 

@@ -44,7 +44,9 @@ const Navbar = () => {
           </div>
 
           {/* App Store Buttons */}
+          
           <div className="hidden md:flex flex-1 items-center justify-end space-x-4">
+          <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
             {/* <StoreButton type="apple" /> */}
             <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors">
                 <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
@@ -53,7 +55,9 @@ const Navbar = () => {
                   <div className="text-sm font-semibold">Google Play</div>
                 </div>
               </button>
+              </Link>
           </div>
+
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -80,12 +84,14 @@ const Navbar = () => {
         }`}>
           <div className="px-2 pt-2 pb-3 space-y-4">
             <a href="#features" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">Features</a>
-            <a href="#how-it-works" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">How it Works</a>
-            <a href="#contact" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">Contact</a>
+            <a href="#how" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">How it Works</a>
+            <a href="#testimonials-section" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">Testimonials</a>
             
             <div className="space-y-3 px-3">
               {/* <StoreButton type="apple" isMobile /> */}
+              <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
               <StoreButton type="google" isMobile />
+              </Link>
             </div>
           </div>
         </div>

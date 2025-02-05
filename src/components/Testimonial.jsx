@@ -60,7 +60,6 @@ const Testimonials = () => {
       className="px-4 py-16 bg-gradient-to-b from-yellow-50 to-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className={`text-center mb-12 transform transition-all duration-700 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
@@ -72,19 +71,21 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-3">
+        <div className="flex flex-col items-center md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className={`transform transition-all duration-700 ${
+              className={`transform transition-all duration-700 w-full max-w-md mb-6 md:mb-0 ${
                 isVisible
                   ? 'translate-y-0 opacity-100'
                   : `translate-y-20 opacity-0 delay-${index * 200}`
+              } ${
+                index === 2 
+                  ? 'md:col-start-1 md:col-end-3 md:justify-self-center lg:col-start-auto lg:col-end-auto' 
+                  : ''
               }`}
             >
-              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group">
-                {/* Card Header with Image and Name */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
                 <div className="flex items-center mb-4">
                   <div className="relative">
                     <img
@@ -106,7 +107,6 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                {/* Rating Stars */}
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, index) => (
                     <Star
@@ -121,7 +121,6 @@ const Testimonials = () => {
                   ))}
                 </div>
 
-                {/* Review Text */}
                 <p className="text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
                   "{testimonial.review}"
                 </p>
