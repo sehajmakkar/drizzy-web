@@ -5,20 +5,26 @@ import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 import { Link } from 'react-router-dom';
 
-// Custom hook to detect mobile screen size synchronously
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+// Custom hook to detect screen sizes
+const useScreenSize = () => {
+  const [screenSize, setScreenSize] = React.useState({
+    isMobile: window.innerWidth <= 768,
+    isTablet: window.innerWidth > 768 && window.innerWidth <= 1024
+  });
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setScreenSize({
+        isMobile: window.innerWidth <= 768,
+        isTablet: window.innerWidth > 768 && window.innerWidth <= 1024
+      });
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return isMobile;
+  return screenSize;
 };
 
 // Improved Animated Suffix Component
@@ -55,7 +61,7 @@ const AnimatedSuffix = () => {
   );
 };
 
-function Model({ mouseX, ...props }) {
+function Model({ mouseX, screenSize, ...props }) {
   const { scene } = useGLTF("/chevy.glb");
   const modelRef = useRef();
 
@@ -83,12 +89,20 @@ function Model({ mouseX, ...props }) {
     config: { mass: 1, tension: 170, friction: 26 }
   });
 
+  // Calculate scale based on screen size
+  const getModelScale = () => {
+    if (screenSize.isMobile) return 0.015;
+    if (screenSize.isTablet) return 0.0125;
+    return 0.01;
+  };
+
   return (
     <animated.primitive 
       ref={modelRef}
       object={scene} 
       rotation-y={rotation}
       rotation-x={0.1}
+      scale={getModelScale()}
       {...props} 
     />
   );
@@ -96,18 +110,29 @@ function Model({ mouseX, ...props }) {
 
 const Hero = () => {
   const [mouseX, setMouseX] = React.useState(0);
-  const isMobile = useIsMobile(); // Use the custom hook to detect mobile
+  const screenSize = useScreenSize();
 
   const handleMouseMove = (event) => {
-    if (!isMobile) {
+    if (!screenSize.isMobile) {
       const rect = event.currentTarget.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width * 2 - 1;
       setMouseX(x);
     }
   };
 
+  // Adjust camera and zoom based on screen size
+  const getCameraConfig = () => {
+    if (screenSize.isMobile) {
+      return { fov: 50, position: [0, 0, 4.5] };
+    }
+    if (screenSize.isTablet) {
+      return { fov: 45, position: [0, 0, 4.8] };
+    }
+    return { fov: 45, position: [0, 0, 5] };
+  };
+
   return (
-    <div className="min-h-screen bg-white pt-20 lg:pt-0">
+    <div className="min-h-[calc(100vh-5rem)] md:-mb-33 bg-white pt-20 lg:pt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between py-12 md:py-20 lg:py-32">
           {/* Left Section */}
@@ -126,22 +151,22 @@ const Hero = () => {
                 Book a Trainer
               </button>
               <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
-              <button className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto">
-                Download App
-              </button>
+                <button className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto">
+                  Download App
+                </button>
               </Link>
             </div>
           </section>
 
           {/* Right Section */}
           <section 
-            className="flex-1 w-full h-[400px] md:h-[600px] lg:h-[700px] relative"
+            className="flex-1 w-full h-[300px] md:h-[400px] lg:h-[600px] relative"
             onMouseMove={handleMouseMove}
           >
             <Canvas
               dpr={[1, 2]}
               shadows={false}
-              camera={{ fov: 45, position: [0, 0, 5] }}
+              camera={getCameraConfig()}
               className="w-full h-full"
             >
               <color attach="background" args={["#ffffff"]} />
@@ -151,7 +176,7 @@ const Hero = () => {
                 intensity={2}
                 castShadow={false}
               />
-              {!isMobile && (
+              {!screenSize.isMobile ? (
                 <PresentationControls
                   speed={1.5}
                   global
@@ -161,18 +186,17 @@ const Hero = () => {
                 >
                   <Stage environment={null} intensity={0}>
                     <Model 
-                      scale={0.01}
                       mouseX={mouseX}
+                      screenSize={screenSize}
                       rotation-y={Math.PI * 1.5}
                     />
                   </Stage>
                 </PresentationControls>
-              )}
-              {isMobile && (
+              ) : (
                 <Stage environment={null} intensity={0}>
                   <Model 
-                    scale={0.015}
                     mouseX={0}
+                    screenSize={screenSize}
                     rotation-y={Math.PI * 1.5}
                   />
                 </Stage>

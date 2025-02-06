@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -23,6 +24,7 @@ const Footer = () => {
                   className="h-8"
                 />
               </button> */}
+              <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
               <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors">
                 <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
                 <div className="text-left">
@@ -30,6 +32,7 @@ const Footer = () => {
                   <div className="text-sm font-semibold">Google Play</div>
                 </div>
               </button>
+              </Link>
             </div>
           </div>
 

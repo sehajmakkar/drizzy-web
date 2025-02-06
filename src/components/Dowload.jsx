@@ -23,7 +23,7 @@ const DownloadSection = () => {
                 <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
                 <div className="h-[46px] w-[3px] bg-gray-800 absolute -right-[17px] top-[124px] rounded-r-lg"></div>
                 <div className="rounded-[2rem] overflow-hidden w-full h-full bg-white">
-                  <img src="/api/placeholder/272/572" alt="App Preview 1" className="w-full h-full object-cover" />
+                  <img src="/drizzy-startng.jpg" alt="App Preview 1" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -32,7 +32,7 @@ const DownloadSection = () => {
             <div className="absolute top-20 left-0 w-[200px] transform -rotate-12 scale-75 opacity-75 z-10 hidden md:block">
               <div className="relative border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[500px] w-[260px] shadow-xl">
                 <div className="rounded-[2rem] overflow-hidden w-full h-full bg-white">
-                  <img src="/api/placeholder/272/572" alt="App Preview 2" className="w-full h-full object-cover" />
+                  <img src="/mobile-no-drizzy.jpg" alt="App Preview 2" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@ const DownloadSection = () => {
             <div className="absolute top-20 right-0 w-[200px] transform rotate-12 scale-75 opacity-75 z-10 hidden md:block">
               <div className="relative border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[500px] w-[260px] shadow-xl">
                 <div className="rounded-[2rem] overflow-hidden w-full h-full bg-white">
-                  <img src="/api/placeholder/272/572" alt="App Preview 3" className="w-full h-full object-cover" />
+                  <img src="/drizzy-right.jpg" alt="App Preview 3" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
