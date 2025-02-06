@@ -4,6 +4,7 @@ import { useGLTF, Stage, PresentationControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 import { Link } from 'react-router-dom';
+import ChatButton from './ChatButton';
 
 // Custom hook to detect screen sizes
 const useScreenSize = () => {
@@ -147,9 +148,7 @@ const Hero = () => {
               Start your journey to becoming a confident driver today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-yellow-600 transition-colors w-full sm:w-auto">
-                Book a Trainer
-              </button>
+              <ChatButton/>
               <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
                 <button className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto">
                   Download App
