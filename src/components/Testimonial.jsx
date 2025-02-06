@@ -27,7 +27,7 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Alex Thompson",
+      name: "John Doe",
       achievement: "Passed First Try!",
       rating: 5,
       review: "Drizzy made learning to drive so easy! The booking process was smooth, and my instructor was incredibly patient. Passed my test on the first attempt!",

@@ -26,15 +26,15 @@ const App = () => {
       element: <HomePage />,
     },
     {
-      path: "/terms",
+      path: "/t&c",
       element: <Terms />,
     },
     {
-      path: "/privacy-policy",
+      path: "/privacy",
       element: <Privacy />,
     },
     {
-      path: "/refund",
+      path: "/c&r",
       element: <Refund />,
     }
   ])

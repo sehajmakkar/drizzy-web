@@ -42,9 +42,9 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: 'Home', href: '/' },
-                { name: 'Privacy Policy', href: '/privacy-policy' },
-                { name: 'Terms and Conditions', href: '/terms' },
-                { name: 'Refund and Cancellation', href: '/refund' }
+                { name: 'Privacy Policy', href: '/privacy' },
+                { name: 'Terms and Conditions', href: '/t&c' },
+                { name: 'Refund and Cancellation', href: '/c&r' }
               ].map((item) => (
                 <li key={item.name}>
                   <a
