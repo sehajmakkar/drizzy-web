@@ -150,10 +150,13 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <ChatButton/>
               <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
-                <button className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto">
-                  Download App
-                </button>
-              </Link>
+              <button 
+  className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto"
+  onClick={() => trackEvent('submit_application', { button: 'Download App' })}
+>
+  Download App
+</button>
+</Link>
             </div>
           </section>
 
