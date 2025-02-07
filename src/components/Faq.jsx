@@ -11,12 +11,12 @@ const FAQ = () => {
     {
       id: 2,
       question: "What documents do I need before starting lessons?",
-      answer: "You'll need a valid provisional driving license before your first lesson. We recommend uploading this to the app during registration. You don't need to bring any physical documents to your lessons as everything is stored securely in the app."
+      answer: "You'll need a valid learning license before your first lesson. We recommend uploading this to the app during registration. You don't need to bring any physical documents to your lessons as everything is stored securely in the app. If you don’t have one, no worries. Just ping on +91 70420 09908 and our team will assist you to get it in minutes."
     },
     {
       id: 3,
       question: "How much does each lesson cost and what payment methods are accepted?",
-      answer: "Our lesson prices start from £30 per hour, with discounts available when you book packages. We accept all major credit/debit cards, Apple Pay, and Google Pay through our secure payment system in the app. You can view all pricing options and special offers directly in the app."
+      answer: "Our lesson prices start from ₹250 per hour, with discounts available when you book packages. We accept all major credit/debit cards, UPI, Net Banking, Apple Pay, and Google Pay through our secure payment system in the app. You can view all pricing options and special offers directly in the app."
     },
     {
       id: 4,

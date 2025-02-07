@@ -1,12 +1,12 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Download } from 'lucide-react';
+import { Phone, Mail, MapPin, Download, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer id='contact' className="bg-gray-900 text-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Driving Made Easy Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
@@ -17,21 +17,14 @@ const Footer = () => {
               Download Drizzy Now!!
             </p>
             <div className="flex space-x-4">
-              {/* <button className="bg-white/10 hover:bg-white/20 transition-colors duration-300 p-3 rounded-lg">
-                <img
-                  src="/api/placeholder/120/40"
-                  alt="App Store"
-                  className="h-8"
-                />
-              </button> */}
               <Link to="https://play.google.com/store/apps/details?id=com.drizzy.user">
-              <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors">
-                <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
-                <div className="text-left">
-                  <div className="text-xs">GET IT ON</div>
-                  <div className="text-sm font-semibold">Google Play</div>
-                </div>
-              </button>
+                <button className="inline-flex items-center px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors">
+                  <img src="/google-play.png" alt="Google Play" className="w-6 h-6 mr-2" />
+                  <div className="text-left">
+                    <div className="text-xs">GET IT ON</div>
+                    <div className="text-sm font-semibold">Google Play</div>
+                  </div>
+                </button>
               </Link>
             </div>
           </div>
@@ -44,7 +37,7 @@ const Footer = () => {
                 { name: 'Home', href: '/' },
                 { name: 'Privacy Policy', href: '/privacy' },
                 { name: 'Terms and Conditions', href: '/t&c' },
-                { name: 'Refund and Cancellation', href: '/c&r' }
+                { name: 'Cancellation and Refund', href: '/c&r' }
               ].map((item) => (
                 <li key={item.name}>
                   <a
@@ -84,6 +77,37 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          {/* Follow Us Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">Follow Us</h3>
+            <div className="flex flex-col space-y-4">
+              <a 
+                href="https://instagram.com/drizzy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors duration-300"
+              >
+                <div className="bg-gray-800 p-2 rounded-lg">
+                  {/* <Instagram className="w-6 h-6" /> */}
+                  <img src="/instagram-drizzy.png" alt="Instagram" className="w-6 h-6" />
+                </div>
+                <span>Instagram</span>
+              </a>
+              <a 
+                href="https://linkedin.com/company/drizzy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors duration-300"
+              >
+                <div className="bg-gray-800 p-2 rounded-lg">
+                  <img src="/linkedin-drizzy.png" alt="Instagram" className="w-6 h-6" />
+                  {/* <Linkedin className="w-6 h-6" /> */}
+                </div>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Copyright Bar */}
@@ -93,14 +117,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-
-      {/* Mobile App Bar - Fixed at Bottom */}
-      {/* <div className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 p-4">
-        <button className="w-full bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300">
-          <Download className="w-5 h-5" />
-          Download Drizzy
-        </button>
-      </div> */}
     </footer>
   );
 };

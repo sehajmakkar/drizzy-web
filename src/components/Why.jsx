@@ -36,7 +36,7 @@ const features = [
 
 const WhyDrizzy = () => {
   return (
-    <section id="features" className="bg-gray-50 mt-1 mb-10">
+    <section id="features" className="bg-gray-50 pt-5 mb-10">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-4">Why Choose Drizzy</h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
