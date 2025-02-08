@@ -82,7 +82,7 @@ const Testimonials = () => {
       name: "Aditya Kumar",
       achievement: "Flexible Schedule",
       rating: 4.6,
-      review: "As a busy student, I loved how easy it was to schedule lessons. The reminders and progress tracking were super helpful. Take Drizzy’s course before moving abroad!",
+      review: "As a busy student, I loved how easy it was to schedule lessons and decided to take Drizzy's course before moving abroad. The reminders and progress tracking were super helpful.",
       imageUrl: "student2.jpg",
       icon: <Calendar className="w-5 h-5 text-yellow-500" />
     },

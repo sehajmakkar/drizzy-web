@@ -48,7 +48,7 @@ const DownloadSection = () => {
           </div>
 
           {/* Content - Centered on Mobile, Left-Aligned on Desktop */}
-          <div className="w-full md:w-3/5 text-center md:text-left z-30">
+          <div id='download-button' className="w-full md:w-3/5 text-center md:text-left z-30">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Download Drizzy Today
             </h2>

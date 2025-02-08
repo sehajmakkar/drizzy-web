@@ -51,6 +51,7 @@ const FAQ = () => {
               className="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 hover:bg-gray-50/80 transition-colors duration-300"
             >
               <button
+                id='faq-question'
                 onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
                 className="w-full px-6 py-4 flex items-center justify-between gap-4 text-left"
               >
@@ -76,7 +77,7 @@ const FAQ = () => {
         </div>
 
         {/* Contact Support */}
-        <div className="mt-12 text-center">
+        <div id='contact-faq' className="mt-12 text-center">
           <p className="text-gray-600">
             Still have questions?{' '}
             <a 

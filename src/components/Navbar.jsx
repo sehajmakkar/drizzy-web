@@ -44,13 +44,13 @@ const Navbar = () => {
 
           {/* Desktop/Tablet Menu - Centered */}
           <div className="hidden md:flex flex-grow justify-center space-x-4 lg:space-x-8">
-            <NavLink href="#features">Features</NavLink>
-            <NavLink href="#how">How it Works</NavLink>
-            <NavLink href="#testimonials-section">Testimonials</NavLink>
+            <NavLink id="features-navbar" href="#features">Features</NavLink>
+            <NavLink id="how-navbar" href="#how">How it Works</NavLink>
+            <NavLink id="testimonials-navbar" href="#testimonials-section">Testimonials</NavLink>
           </div>
 
           {/* App Store Buttons */}
-          <div className="hidden md:flex items-center justify-end flex-shrink-0 ml-4 lg:ml-8">
+          <div id="google-play-navbar" className="hidden md:flex items-center justify-end flex-shrink-0 ml-4 lg:ml-8">
             {/* <StoreButton type="apple" /> */}
             <Link 
               to="https://play.google.com/store/apps/details?id=com.drizzy.user"
@@ -88,7 +88,7 @@ const Navbar = () => {
             <a href="#how" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">How it Works</a>
             <a href="#testimonials-section" className="block px-3 py-2 text-black hover:bg-yellow-100 rounded-lg text-center">Testimonials</a>
             
-            <div className="space-y-3 px-3">
+            <div id="google-play-navbar-mobile" className="space-y-3 px-3">
               {/* <StoreButton type="apple" isMobile /> */}
               <Link 
                 to="https://play.google.com/store/apps/details?id=com.drizzy.user"
@@ -122,7 +122,7 @@ const StoreButton = ({ type, isMobile = false }) => {
   }`;
   
   return (
-    <button className={baseClasses}>
+    <button id='google-play-navbar' className={baseClasses}>
       {type === 'apple' ? (
         <>
           <svg className="w-5 h-5 lg:w-6 lg:h-6" viewBox="0 0 24 24" fill="currentColor">
