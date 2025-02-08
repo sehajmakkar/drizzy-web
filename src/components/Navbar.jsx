@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { initializePixel, trackCustomEvent } from '../utils/pixel';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    initializePixel();
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
@@ -16,9 +14,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handlePlayStoreClick = () => {
-    trackCustomEvent('CompleteRegistration');
-  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -54,7 +49,6 @@ const Navbar = () => {
             {/* <StoreButton type="apple" /> */}
             <Link 
               to="https://play.google.com/store/apps/details?id=com.drizzy.user"
-              onClick={handlePlayStoreClick}
             >
               <StoreButton type="google" />
             </Link>
@@ -92,7 +86,6 @@ const Navbar = () => {
               {/* <StoreButton type="apple" isMobile /> */}
               <Link 
                 to="https://play.google.com/store/apps/details?id=com.drizzy.user"
-                onClick={handlePlayStoreClick}
               >
                 <StoreButton type="google" isMobile />
               </Link>

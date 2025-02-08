@@ -10,18 +10,10 @@ import Terms from './components/Terms'
 import Privacy from './components/Privacy'
 import Refund from './components/Refund'
 import HomePage from './components/HomePage'
-// import { initializePixel } from './utils/pixel';
-import { useMetaPixel } from './hooks/useMetaPixel';
 
 
 
 const App = () => {
-
-  // useEffect(() => {
-  //   initializePixel();
-  // }, []);
-
-  useMetaPixel();
 
   const router = createBrowserRouter([
     {

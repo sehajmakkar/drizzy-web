@@ -159,9 +159,6 @@ const Hero = () => {
                 <button
                   id="hero-download"
                   className="border-2 border-black text-black px-8 py-4 rounded-full font-semibold text-lg md:text-xl hover:bg-black hover:text-white transition-colors w-full sm:w-auto"
-                  onClick={() =>
-                    trackEvent("submit_application", { button: "Download App" })
-                  }
                 >
                   Download App
                 </button>
