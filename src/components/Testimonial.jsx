@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Car, Calendar, Award } from 'lucide-react';
+import { Star, StarHalf, Car, Calendar, Award } from 'lucide-react';
 
 const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,32 +24,75 @@ const Testimonials = () => {
     };
   }, []);
 
+  // Function to render stars with decimal support
+  const renderStars = (rating) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+
+    // Add full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <Star
+          key={`full-${i}`}
+          size={20}
+          className="text-yellow-400 fill-yellow-400 transform transition-all duration-300 group-hover:scale-110"
+        />
+      );
+    }
+
+    // Add half star if needed
+    if (hasHalfStar) {
+      stars.push(
+        <StarHalf
+          key="half"
+          size={20}
+          className="text-yellow-400 fill-yellow-400 transform transition-all duration-300 group-hover:scale-110"
+        />
+      );
+    }
+
+    // Add empty stars
+    const emptyStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <Star
+          key={`empty-${i}`}
+          size={20}
+          className="text-gray-300 fill-gray-300"
+        />
+      );
+    }
+
+    return stars;
+  };
+
   const testimonials = [
     {
       id: 1,
-      name: "John Doe",
+      name: "Sehaj Preet",
       achievement: "Passed First Try!",
-      rating: 5,
+      rating: 4.7,
       review: "Drizzy made learning to drive so easy! The booking process was smooth, and my instructor was incredibly patient. Passed my test on the first attempt!",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/219/219988.png",
+      imageUrl: "student4.jpg",
       icon: <Car className="w-5 h-5 text-yellow-500" />
     },
     {
       id: 2,
-      name: "Maria Garcia",
+      name: "Aditya Kumar",
       achievement: "Flexible Schedule",
-      rating: 5,
-      review: "As a busy student, I loved how easy it was to schedule lessons through the app. The reminders and progress tracking features were super helpful!",
-      imageUrl: "https://freesvg.org/img/1459344336.png",
+      rating: 4.6,
+      review: "As a busy student, I loved how easy it was to schedule lessons. The reminders and progress tracking were super helpful. Take Drizzy’s course before moving abroad!",
+      imageUrl: "student2.jpg",
       icon: <Calendar className="w-5 h-5 text-yellow-500" />
     },
     {
       id: 3,
-      name: "David Chen",
+      name: "Sharvi Aggarwal",
       achievement: "Confident Driver",
-      rating: 5,
+      rating: 5.0,
       review: "The structured learning approach and supportive instructors helped me overcome my driving anxiety. Now I'm a confident driver thanks to Drizzy!",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/219/219988.png",
+      imageUrl: "student1.jpg",
       icon: <Award className="w-5 h-5 text-yellow-500" />
     }
   ];
@@ -81,11 +124,11 @@ const Testimonials = () => {
                   : `translate-y-20 opacity-0 delay-${index * 200}`
               } ${
                 index === 2 
-                  ? 'md:col-start-1 md:col-end-3 md:justify-self-center lg:col-start-auto lg:col-end-auto' 
+                  ? 'md:col-span-2 md:justify-self-center lg:col-start-auto lg:col-end-auto' 
                   : ''
               }`}
             >
-              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
+              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
                 <div className="flex items-center mb-4">
                   <div className="relative">
                     <img
@@ -107,21 +150,16 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, index) => (
-                    <Star
-                      key={index}
-                      size={20}
-                      className={`transform transition-all duration-300 ${
-                        index < testimonial.rating
-                          ? 'text-yellow-400 fill-yellow-400 group-hover:scale-110'
-                          : 'text-gray-300 fill-gray-300'
-                      }`}
-                    />
-                  ))}
+                <div className="flex items-center mb-4">
+                  <div className="flex mr-2">
+                    {renderStars(testimonial.rating)}
+                  </div>
+                  <span className="text-sm text-gray-500">
+                    ({testimonial.rating.toFixed(1)})
+                  </span>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
+                <p className="text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors duration-300 flex-grow">
                   "{testimonial.review}"
                 </p>
               </div>

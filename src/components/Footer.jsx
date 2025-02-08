@@ -83,7 +83,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold">Follow Us</h3>
             <div className="flex flex-col space-y-4">
               <a 
-                href="https://instagram.com/drizzy"
+                href="https://www.instagram.com/drizzy.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors duration-300"
@@ -95,7 +95,7 @@ const Footer = () => {
                 <span>Instagram</span>
               </a>
               <a 
-                href="https://linkedin.com/company/drizzy"
+                href="https://www.linkedin.com/company/drizzygosafe/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors duration-300"
