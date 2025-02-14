@@ -44,7 +44,7 @@ const How = () => {
                 <div className="h-[46px] w-[3px] bg-gray-800 dark:border-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
                 <div className="h-[64px] w-[3px] bg-gray-800 dark:border-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
                 <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
-                  {/* <video 
+                  <video 
                     src="./demo-drizzy.mp4" 
                     className="w-full h-full"
                     autoPlay
@@ -55,7 +55,7 @@ const How = () => {
                     onLoadedMetadata={(e) => {
                       e.target.playbackRate = 0.25;
                     }}
-                  /> */}
+                  />
                 </div>
               </div>
             </div>
